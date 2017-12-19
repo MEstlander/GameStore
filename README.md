@@ -1,4 +1,5 @@
 1. Team
+<<<<<<< HEAD
    473420 Max Estlander
    529329 Lauri Koskela
    528485 Rasmus Blässar
@@ -58,3 +59,9 @@ SQL injection protection
 Django’s querysets are protected from SQL injection since their queries are constructed using query parameterization.
 
 And of course we will not share any secret keys in code and version control.
+=======
+    473420 Max Estlander
+    529329 Lauri Koskela
+    528485 Rasmus Blässar
+    
+>>>>>>> 20f07ece66860d8c453c41191e69acfb07f66a00
