@@ -17,20 +17,20 @@ We have created backlog in Trello and listed all features in mandatory and more 
 Features and implementations: <br>
 _Authentication of the user:_ This will be done with django authentication which was provided in the project instructions. <br>
 Buying games (player): The player must be able to buy games from the service, this will be done with models and the payment service. The player will gain permission to the game after purchase. <br>
-Playing games (player): The player must be able to play the game purchased. For this purpose we will implement a game window in an iframe, which will run the game javascript code. The games won’t be uploaded to the server. <br>
-Game inventory (developer): Users that are developers will have access to their own Inventory. The developers can modify only their own inventories. The inventory will be displayed through the models of Developer and Game. <br>
-Adding a game to the service: Developers must be able to add games to the service, this is done through adding a game to the database. <br>
+_Playing games (player):_ The player must be able to play the game purchased. For this purpose we will implement a game window in an iframe, which will run the game javascript code. The games won’t be uploaded to the server. <br>
+_Game inventory (developer):_ Users that are developers will have access to their own Inventory. The developers can modify only their own inventories. The inventory will be displayed through the models of Developer and Game. <br>
+_Adding a game to the service:_ Developers must be able to add games to the service, this is done through adding a game to the database. <br>
 Sale stats for the inventory: Developer must be able to see how many games have been purchased and how much money they have generated. This is done through accessing the database for the developers games and querying the amount and price. <br>
-Interaction between gamewindow and service: As the game will run in an iframe it will communicate with the service with postMessage. The service must be also able to communicate with the service which can be done with an eventListener that can store the json sent to the game and execute its content <br>
+_Interaction between gamewindow and service:_ As the game will run in an iframe it will communicate with the service with postMessage. The service must be also able to communicate with the service which can be done with an eventListener that can store the json sent to the game and execute its content <br>
 Creating models for Django: Creating the appropriate models that we can use in the project. <br>
-Checking for security concerns: Testing risky points of the service. <br>
+_Checking for security concerns:_ Testing risky points of the service. <br>
 Enforcing quality: Using a linter, commenting, thinking about UX and testing. <br>
-Deploying to HEROKU: Using heroku to run the service, first by testing it with a simple file and later with the full service. Heroku turns off after sometime of inactivity so the time limit can be almost disregarded.
+_Deploying to HEROKU:_ Using heroku to run the service, first by testing it with a simple file and later with the full service. Heroku turns off after sometime of inactivity so the time limit can be almost disregarded.
 
 Initial Django models: <br>
-Developer and Player will be part of the same model and have OneToOne relation with the User module in Django. They will belong to different groups (Developers and Players) and get their permission from there. They will also have a owned games field which is a many to many field with games. <br>
-Games will have their own model where they get the following fields: name (char field), description (text field), url (URL field), price (float field), date of publication (Date time field), picture (url field), times purchased (integer field) and developer (foreign key to users profile). <br>
-Highscores will also have an own model with the following fields: player name (from player db), game name (from game db) and score (float field).
+_Developer_ and _Player_ will be part of the same model and have OneToOne relation with the User module in Django. They will belong to different groups (Developers and Players) and get their permission from there. They will also have a owned games field which is a many to many field with games. <br>
+_Games_ will have their own model where they get the following fields: name (char field), description (text field), url (URL field), price (float field), date of publication (Date time field), picture (url field), times purchased (integer field) and developer (foreign key to users profile). <br>
+_Highscores_ will also have an own model with the following fields: player name (from player db), game name (from game db) and score (float field).
 
 __Process and Time Schedule__<br>
 We will not be working on winter break but after that we will start meeting face-to-face once a week for a long period of time (5+ hours) during which we will try to get everything done so we won’t have to meet-up or work at home extra. If needed however we will start meeting more or doing extra work at home.
