@@ -8,7 +8,7 @@ class Category(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=30, unique=True)
 
-    def json_dict(self):
+    def json(self):
         """outputs data in json format"""
         json = {
             'id': self.id,
@@ -27,8 +27,8 @@ class Game(models.Model):
     price = models.FloatField(default=0)
     category = models.ForeignKey(Category, null=False, on_delete=models.CASCADE)
 
-    #add any data fields from model to json_dict
-    def json_dict(self):
+    #add any data fields from Game model to json
+    def json(self):
         """outputs data in json format"""
         json = {
             'id': self.id,
