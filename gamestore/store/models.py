@@ -9,6 +9,6 @@ class Category(models.Model):
 class Game(models.Model):
     id = models.AutoField(primary_key = True)
     name = models.CharField(max_length = 50, unique = True)
-    category = models.ForeignKey(Category, null = False, on_delete = 'CASCADE')
+    category = models.ForeignKey(Category, null = False, on_delete = models.CASCADE)
 
 # Create your models here.
