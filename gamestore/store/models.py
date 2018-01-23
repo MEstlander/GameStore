@@ -4,7 +4,7 @@ from django.db import models
 
 
 class Category(models.Model):
-    """Category of games skeleton structure"""
+    """Category model for categories of games."""
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=30, unique=True)
 
@@ -13,12 +13,11 @@ class Category(models.Model):
 
 
 class Game(models.Model):
-    """Games skeleton structure"""
+    """Games model for games"""
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=50, unique=True)
+    price = models.FloatField(default=0)
     category = models.ForeignKey(Category, null=False, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
-
-# Create your models here.
