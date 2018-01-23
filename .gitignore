@@ -14,7 +14,8 @@ __pycache__/
 local_settings.py
 
 .env
-db.sqlite3
+*.sqlite3
+staticfiles/
 
 ### OSX ###
 .DS_Store
@@ -38,3 +39,6 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+
+### Yarn dependencies ###
+node_modules/
