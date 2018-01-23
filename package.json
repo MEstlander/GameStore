@@ -1,0 +1,11 @@
+{
+  "name": "game-store",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@version.aalto.fi:blassar1/game-store.git",
+  "author": "rasmusblassar, laurikoskela, maxestlander",
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "^4.0.0"
+  }
+}
