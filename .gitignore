@@ -1,0 +1,9 @@
+# IDE files
+.idea/
+
+# Compiled python
+*.pyc
+__pycache__/
+
+# Data and outputs
+.DS_Store
