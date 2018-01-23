@@ -1,0 +1,16 @@
+<html>
+    <head>
+        <title>base</title> 
+    </head>
+    <body>
+        <div>
+            {% block content %}
+            {% endblock %}
+        </div>
+        <div>
+            <a href="{% url 'login'%}">login</a>
+            <a href="{% url 'logout'%}">logout</a>
+            <a href="{% url 'register'%}">register</a>
+        </div>
+    </body>
+</html>
