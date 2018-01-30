@@ -6,6 +6,7 @@
   "author": "rasmusblassar, laurikoskela, maxestlander",
   "license": "MIT",
   "dependencies": {
-    "bootstrap": "^4.0.0"
+    "bootstrap": "4.0.0",
+    "jquery": "^3.3.1"
   }
 }

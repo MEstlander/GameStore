@@ -1,11 +1,15 @@
-from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render
-@login_required()
-def index(request):
-    return HttpResponse("Hello, world. You're at the store index.")
 
+
+def homepage(request):
+    return render(request, 'index.html')
+
+def store(request):
+    return render(request, 'index.html')
+
+@login_required()
 def registration(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
