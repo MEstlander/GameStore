@@ -5,11 +5,15 @@ from .forms import GameFrom
 
 
 def homepage(request):
-    return render(request, 'index.html')
+    return render(request, 'base.html', { 'content': 'homepage/content.html' })
 
 
 def store(request):
-    return render(request, 'index.html')
+    return render(request, 'base.html', { 'content': 'store/content.html' })
+
+
+def library(request):
+    return render(request, 'base.html', { 'content': 'library/content.html' })
 
 
 @login_required()
