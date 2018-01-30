@@ -26,7 +26,7 @@ class Game(models.Model):
     name = models.CharField(max_length=50, unique=True)
     price = models.FloatField(default=0)
     category = models.ForeignKey(Category, null=False, on_delete=models.CASCADE)
-
+    url = models.URLfield(unique = True)
     #add any data fields from Game model to json
     def json(self):
         """outputs data in json format"""
