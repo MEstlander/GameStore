@@ -4,16 +4,6 @@ from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render
 # Create your views here.
 
-'''def registration(request):
-    if request.method == 'POST':
-        form = UserCreationForm(request.POST)
-        if form.is_valid():
-            form.save()
-    else:
-        form = UserCreationForm()
-    return render(request, 'registration/registration.html', {'form': form})
-'''
-
 
 def registration(request):
     return render(request, 'registration/base.html', {
@@ -31,3 +21,26 @@ def login(request):
 
 def logout(request):
     pass
+
+'''
+def registration(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+    else:
+        form = UserCreationForm()
+    return render(request, 'registration/registration.html', {'form': form})
+
+
+@login_required()
+def registerGame(request):
+    if request.method == 'POST':
+        form = GameForm(request.POST)
+        if form.is_valid:
+            form.save()
+    else:
+        form = GameFrom()
+    return render(request, 'registration/game.html', {'form': form})
+
+'''
