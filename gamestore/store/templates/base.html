@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="{% static 'bootstrap/dist/css/bootstrap.css' %}">
     <script src="{% static 'jquery/dist/jquery.js' %}"></script>
     <script src="{% static 'bootstrap/dist/js/bootstrap.bundle.js' %}"></script>
-    <title>base</title>
+    <title>{{ title }}</title>
 </head>
 <body class="bg-light">
     <div class="container-fluid px-0">
@@ -34,10 +34,14 @@
                             Account
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
+                            {% if user.is_authenticated %}
+                            <a class="dropdown-item" href="#">View profile</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Something else here</a>
+                            <a class="dropdown-item" href="#">Logout</a>
+                            {% else %}
+                            <a class="dropdown-item" href="#">Login</a>
+                            <a class="dropdown-item" href="#">Register</a>
+                            {% endif %}
                         </div>
                     </li>
                     <li class="nav-item">
