@@ -22,12 +22,11 @@ def registration(request):
 def login(request):
     form = AuthenticationForm()
     return render(request, 'registration/login.html',{
-        'title': 'GameStore - Registration',
+        'title': 'GameStore - Login',
         'header': 'login',
         'form': form
     })
     
-
 
 def logout(request):
     logout(request)

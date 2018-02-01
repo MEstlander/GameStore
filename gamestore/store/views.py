@@ -1,7 +1,4 @@
-from django.contrib.auth.decorators import login_required
-from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render
-from .forms import GameFrom
 
 
 def homepage(request):
@@ -23,4 +20,3 @@ def library(request):
         'title': 'GameStore - Library',
         'content': 'library/content.html'
     })
-
