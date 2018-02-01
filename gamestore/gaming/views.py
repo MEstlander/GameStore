@@ -5,7 +5,6 @@ from django.shortcuts import get_object_or_404
 # Create your views here.
 
 @login_required
-def play(request,id):
-    game = get_object_or_404(Game, id=id)
-    
+def play(request,game_name):
+    game = get_object_or_404(Game, name=game_name)
     return render(request,"play_game/play.html", {'remote_server': game.url})
