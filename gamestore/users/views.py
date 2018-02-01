@@ -10,9 +10,9 @@ def registration(request):
             form.save()
     else:
         form = UserCreationForm()
-    return render(request, 'registration/registration.html',{
+    return render(request, 'registration/base.html',{
         'title': 'GameStore - Registration',
-        'header': 'registration',
+        'content': 'registration/registration.html',
         'form': form
     })
     
@@ -28,9 +28,9 @@ def log_in(request):
         else:
             return redirect('/users/login/')
     form = AuthenticationForm()
-    return render(request, 'registration/login.html',{
+    return render(request, 'registration/base.html',{
         'title': 'GameStore - Login',
-        'header': 'login',
+        'content': 'registration/login.html',
         'form': form
     })
     
