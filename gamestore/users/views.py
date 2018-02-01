@@ -1,26 +1,36 @@
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required, permission_required
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.shortcuts import render
 # Create your views here.
 
 
 def registration(request):
-    return render(request, 'registration/base.html', {
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+    else:
+        form = UserCreationForm()
+    return render(request, 'registration/registration.html',{
         'title': 'GameStore - Registration',
-        'form': 'registration/registration.html'
+        'header': 'registration',
+        'form': form
     })
-
+    
 
 def login(request):
-    return render(request, 'registration/base.html', {
-        'title': 'GameStore - Login',
-        'form': 'registration/login.html'
+    form = AuthenticationForm()
+    return render(request, 'registration/login.html',{
+        'title': 'GameStore - Registration',
+        'header': 'login',
+        'form': form
     })
+    
 
 
 def logout(request):
-    pass
+    logout(request)
 
 '''
 def registration(request):
