@@ -32,7 +32,7 @@ def registration(request):
             form.save()
     else:
         form = UserCreationForm()
-    return render(request, 'registration/signup.html', {'form': form})
+    return render(request, 'registration/registration.html', {'form': form})
 
 
 @login_required()
