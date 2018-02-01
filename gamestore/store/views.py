@@ -25,7 +25,6 @@ def library(request):
     })
 
 
-@login_required()
 def registration(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
@@ -36,6 +35,7 @@ def registration(request):
     return render(request, 'registration/signup.html', {'form': form})
 
 
+@login_required()
 def registerGame(request):
     if request.method == 'POST':
         form = GameForm(request.POST)
