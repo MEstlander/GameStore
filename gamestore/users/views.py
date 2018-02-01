@@ -1,8 +1,6 @@
-from django.http import HttpResponse
-from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-from django.shortcuts import render
-# Create your views here.
+from django.contrib.auth import logout, login, authenticate
+from django.shortcuts import render, redirect
 
 
 def registration(request):
@@ -19,7 +17,16 @@ def registration(request):
     })
     
 
-def login(request):
+def log_in(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request, username =username, password= password)
+        if user is not None:
+            login(request, user)
+            return redirect('/')
+        else:
+            return redirect('/users/login/')
     form = AuthenticationForm()
     return render(request, 'registration/login.html',{
         'title': 'GameStore - Login',
@@ -28,28 +35,7 @@ def login(request):
     })
     
 
-def logout(request):
+def log_out(request):
     logout(request)
+    return redirect('/')
 
-'''
-def registration(request):
-    if request.method == 'POST':
-        form = UserCreationForm(request.POST)
-        if form.is_valid():
-            form.save()
-    else:
-        form = UserCreationForm()
-    return render(request, 'registration/registration.html', {'form': form})
-
-
-@login_required()
-def registerGame(request):
-    if request.method == 'POST':
-        form = GameForm(request.POST)
-        if form.is_valid:
-            form.save()
-    else:
-        form = GameFrom()
-    return render(request, 'registration/game.html', {'form': form})
-
-'''
