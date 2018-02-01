@@ -13,7 +13,7 @@
     <div class="container-fluid px-0">
 
         <nav class="navbar navbar-expand-sm navbar-light bg-light">
-            <a class="navbar-brand ml-2" href="/">GameStore</a>
+            <a class="navbar-brand ml-2" href="{% url 'homepage' %}">GameStore</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -21,13 +21,13 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item homepage">
-                        <a class="nav-link" href="/">Home</a>
+                        <a class="nav-link" href="{% url 'homepage' %}">Home</a>
                     </li>
                     <li class="nav-item library">
-                        <a class="nav-link" href="/library">Library</a>
+                        <a class="nav-link" href="{% url 'library' %}">Library</a>
                     </li>
                     <li class="nav-item store">
-                        <a class="nav-link" href="/store">Store</a>
+                        <a class="nav-link" href="{% url 'store' %}">Store</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -37,10 +37,10 @@
                             {% if user.is_authenticated %}
                             <a class="dropdown-item" href="#">View profile</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Logout</a>
+                            <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
                             {% else %}
-                            <a class="dropdown-item" href="users/login">Login</a>
-                            <a class="dropdown-item" href="users/registration">Registration</a>
+                            <a class="dropdown-item" href="{% url 'login' %}">Login</a>
+                            <a class="dropdown-item" href="{% url 'registration' %}">Registration</a>
                             {% endif %}
                         </div>
                     </li>
