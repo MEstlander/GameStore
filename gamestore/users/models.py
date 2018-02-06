@@ -5,6 +5,7 @@ import store.models as x
 class  Profile(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE)
     owned_games = models.ManyToManyField(x.Game,default=None,blank=True)
+    is_developer = False #player if false, developer if true
 
     #return username when the Profile is called
     def __str__(self):
