@@ -103,9 +103,6 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 ##Authentication
 LOGIN_URL = '/users/login/'
-
-AUTH_PROFILE_MODULE = 'users.Profile'
-
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
 
