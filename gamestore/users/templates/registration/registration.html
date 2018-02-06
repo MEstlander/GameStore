@@ -1,5 +1,5 @@
 <form method="post">
-  <a class="mb-4 gamestore_logo" href="{% url "homepage" %}"><h1>GameStore</h1></a>
+  <a class="mb-4 gamestore_logo" href="{% url "homepage" %}"><h1 class="mb-4">GameStore</h1></a>
   <h4 class="mb-3 font-weight-normal">Please register</h4>
   {% csrf_token %}
   {{ form.as_p }}
