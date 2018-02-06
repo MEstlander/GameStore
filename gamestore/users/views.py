@@ -22,6 +22,7 @@ def registration(request):
 
 def log_in(request):
     if request.method == 'POST':
+        form = AuthenticationForm(request)
         username = request.POST['username']
         password = request.POST['password']
         user = authenticate(request, username =username, password= password)
@@ -30,7 +31,8 @@ def log_in(request):
             return redirect('/')
         else:
             return redirect('/users/login/')
-    form = AuthenticationForm()
+    else:
+        form = AuthenticationForm()
     return render(request, 'registration/login.html',{
         'title': 'GameStore - Registration',
         'header': 'login',
