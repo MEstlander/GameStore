@@ -1,9 +1,6 @@
-from django.http import HttpResponse
-from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import logout, login, authenticate
 from django.shortcuts import render, redirect
-# Create your views here.
 
 
 def registration(request):
@@ -13,9 +10,9 @@ def registration(request):
             form.save()
     else:
         form = UserCreationForm()
-    return render(request, 'registration/registration.html',{
+    return render(request, 'registration/base.html',{
         'title': 'GameStore - Registration',
-        'header': 'registration',
+        'content': 'registration/registration.html',
         'form': form
     })
     
@@ -31,15 +28,13 @@ def log_in(request):
             return redirect('/')
         else:
             return redirect('/users/login/')
-    else:
-        form = AuthenticationForm()
-    return render(request, 'registration/login.html',{
-        'title': 'GameStore - Registration',
-        'header': 'login',
+    form = AuthenticationForm()
+    return render(request, 'registration/base.html',{
+        'title': 'GameStore - Login',
+        'content': 'registration/login.html',
         'form': form
     })
     
-
 
 def log_out(request):
     logout(request)

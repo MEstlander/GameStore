@@ -1,27 +1,24 @@
-from django.contrib.auth.decorators import login_required
-from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render
-from .forms import GameFrom
-
+from django.contrib.auth.decorators import login_required
 
 def homepage(request):
-    return render(request, 'base.html', {
+    return render(request, 'store/base.html', {
         'title': 'GameStore - Home',
-        'content': 'homepage/content.html'
+        'content': 'store/homepage.html'
     })
 
 
 def store(request):
-    return render(request, 'base.html', {
+    return render(request, 'store/base.html', {
         'title': 'GameStore - Store',
-        'content': 'store/content.html'
+        'content': 'store/store.html'
     })
 
 
 def library(request):
-    return render(request, 'base.html', {
+    return render(request, 'store/base.html', {
         'title': 'GameStore - Library',
-        'content': 'library/content.html'
+        'content': 'store/library.html'
     })
 
 
@@ -33,4 +30,5 @@ def registerGame(request):
             form.save()
     else:
         form = GameFrom()
-    return render(request, 'developer/game.html', {'form': form})
+    return render(request, 'store/game.html', {'form': form})
+

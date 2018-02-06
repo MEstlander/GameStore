@@ -11,7 +11,8 @@
             <p class="card-text">The ULTIMATE TRAMPOLINE GAME on Mobile! Master the trampoline with Frontflips, Backflips, Gainers, Layouts, Jumps and Bounces on your backyard, gym or circus trampolines and train to be the Master of Trampoline!</p>
             <div class="d-flex justify-content-between align-items-center">
               <div class="btn-group">
-                <button type="button" class="btn btn-sm btn-outline-secondary">Leaderboard</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary leaderboard">Leaderboard</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary share">Share</button>
               </div>
               <small class="text-muted">Developer name</small>
             </div>
@@ -25,7 +26,8 @@
             <p class="card-text">The ULTIMATE TRAMPOLINE GAME on Mobile! Master the trampoline with Frontflips, Backflips, Gainers, Layouts, Jumps and Bounces on your backyard, gym or circus trampolines and train to be the Master of Trampoline!</p>
             <div class="d-flex justify-content-between align-items-center">
               <div class="btn-group">
-                <button type="button" class="btn btn-sm btn-outline-secondary">Leaderboard</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary leaderboard">Leaderboard</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary share">Share</button>
               </div>
               <small class="text-muted">Developer name</small>
             </div>
@@ -39,7 +41,8 @@
             <p class="card-text">The ULTIMATE TRAMPOLINE GAME on Mobile! Master the trampoline with Frontflips, Backflips, Gainers, Layouts, Jumps and Bounces on your backyard, gym or circus trampolines and train to be the Master of Trampoline!</p>
             <div class="d-flex justify-content-between align-items-center">
               <div class="btn-group">
-                <button type="button" class="btn btn-sm btn-outline-secondary">Leaderboard</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary leaderboard">Leaderboard</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary share">Share</button>
               </div>
               <small class="text-muted">Developer name</small>
             </div>
@@ -47,7 +50,6 @@
         </div>
       </div>
     </div>
-
   </div>
 </div>
 
@@ -55,4 +57,18 @@
 
 <script>
     $("li.library").addClass("active")
+    $('.card-img-top').hover(function(){
+        $(this).css({"transition": "opacity .5s ease-in-out", "opacity": "0.5"});
+    }, function(){
+        $(this).css("opacity", "1");
+    });
+    $(".card-img-top").click(function() {
+        alert( "Play game" );
+    });
+    $(".leaderboard").click(function() {
+        alert( "Show leaderboard" );
+    });
+    $(".share").click(function() {
+        alert( "Share on social media" );
+    });
 </script>

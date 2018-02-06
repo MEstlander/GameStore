@@ -8,3 +8,4 @@ from django.shortcuts import get_object_or_404
 def play(request,game_name):
     game = get_object_or_404(Game, name=game_name)
     return render(request,"play_game/play.html", {'remote_server': game.url})
+
