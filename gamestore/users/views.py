@@ -2,6 +2,13 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import logout, login, authenticate
 from django.shortcuts import render, redirect
 from .forms import ProfileForm
+from django.contrib.auth.decorators import user_passes_test, login_required
+from .models import Profile
+from common.utils import is_dev
+import textwrap
+
+from django.http import HttpResponse
+from django.views.generic.base import View
 
 def registration(request):
     if request.method == 'POST':
@@ -41,7 +48,25 @@ def log_in(request):
     })
     
 
+
 def log_out(request):
     logout(request)
     return redirect('/')
+
+
+@login_required() #just for testing if we can restrict websites to devs
+@user_passes_test(is_dev)
+def test(request):
+    response_text = textwrap.dedent('''\
+            <html>
+            <head>
+                <title>Greetings to the world</title>
+            </head>
+            <body>
+                <h1>Greetings to the world</h1>
+                <p>Hello, world!</p>
+            </body>
+            </html>
+        ''')
+    return HttpResponse(response_text)
 

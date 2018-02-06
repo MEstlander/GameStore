@@ -9,6 +9,9 @@ class Profile(models.Model):
     owned_games = models.ManyToManyField(x.Game,default=None,blank=True)
     is_developer = models.BooleanField(default=False) #player if false, developer if true
 
+    @property
+    def dev(self):
+        return Profile.is_developer
     #return username when the Profile is called
     def __str__(self):
         return str(self.user.username)
