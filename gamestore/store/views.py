@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
+from .models import Game
 
 def homepage(request):
     return render(request, 'store/base.html', {
@@ -9,10 +10,12 @@ def homepage(request):
 
 
 def store(request):
-    return render(request, 'store/base.html', {
+    game_set = Game.objects.all()
+    context = {
+        'game_set': game_set,
         'title': 'GameStore - Store',
-        'content': 'store/store.html'
-    })
+        'content': 'store/store.html'}
+    return render(request, 'store/base.html', context)
 
 
 def library(request):
@@ -20,6 +23,8 @@ def library(request):
         'title': 'GameStore - Library',
         'content': 'store/library.html'
     })
+
+# Helper methods
 
 
 @login_required()

@@ -13,6 +13,8 @@ game-store.iml
 *.pyc
 __pycache__/
 local_settings.py
+*migrations/
+media/
 
 .env
 *.sqlite3
@@ -43,4 +45,5 @@ Temporary Items
 
 ### Yarn dependencies ###
 node_modules/
+
 

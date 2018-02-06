@@ -31,15 +31,15 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'store.apps.StoreConfig',
+    'users.apps.UsersConfig',
+    'gaming.apps.GamingConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'store',
-    'users',
-    'gaming',
 ]
 
 MIDDLEWARE = [
@@ -134,3 +134,9 @@ STATICFILES_FINDERS = [
 # Yarn
 
 YARN_ROOT_PATH = '..'
+
+MEDIA_ROOT = (
+    os.path.join(BASE_DIR, 'media')
+)
+
+MEDIA_URL = '/media/'
