@@ -1,19 +1,24 @@
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import logout, login, authenticate
 from django.shortcuts import render, redirect
-
+from .forms import ProfileForm
 
 def registration(request):
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
-        if form.is_valid():
-            form.save()
+        user_form = UserCreationForm(request.POST)
+        profile_form = ProfileForm(request.POST)
+        if user_form.is_valid() and profile_form.is_valid():
+            user_form.save()
+            profile_form.save()
+            return redirect('/')
     else:
-        form = UserCreationForm()
+        user_form = UserCreationForm()
+        profile_form = ProfileForm()
     return render(request, 'registration/base.html',{
         'title': 'GameStore - Registration',
         'content': 'registration/registration.html',
-        'form': form
+        'user_form': user_form,
+        'profile_form': profile_form,
     })
     
 

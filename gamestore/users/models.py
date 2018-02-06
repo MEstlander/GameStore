@@ -1,7 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
-from djano.db.models.signals import post_save
+from django.db.models.signals import post_save
 from django.dispatch import receiver
+import store.models as x
 # Create your models here.
 class Profile(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE)
@@ -12,6 +13,9 @@ class Profile(models.Model):
     def __str__(self):
         return str(self.user.username)
 
+class Developer
+
+
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):
     if created:
@@ -19,4 +23,5 @@ def create_user_profile(sender, instance, created, **kwargs):
 @receiver(post_save, sender=User)
 def save_user_profile(sender, instance, **kwargs):
     instance.profile.save()
+    
     
