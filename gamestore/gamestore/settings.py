@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 
 import os
 
+from django.contrib.messages import constants as messages
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -102,9 +104,16 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 ##Authentication
-LOGIN_URL = '/users/login/'
+LOGIN_URL = '/accounts/login/'
 
-AUTH_USER_MODEL = 'users.Profile'
+LOGOUT_URL = '/accounts/logout/'
+
+AUTH_USER_MODEL = 'users.User'
+
+LOGIN_REDIRECT_URL = 'homepage'
+
+LOGOUT_REDIRECT_URL = 'homepage'
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/

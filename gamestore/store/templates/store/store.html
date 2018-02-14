@@ -1,3 +1,8 @@
+{% extends "store/base.html" %}
+
+{% block title %}Gamestore - Store{% endblock %}
+
+{% block content %}
 <main role="main">
 
 <div class="album py-5 bg-light">
@@ -26,10 +31,13 @@
         {% endif %}
       {% endfor %}
     {% else %}
-    <p>No games are available.</p>
+      <div class="alert mx-auto p-5" role="alert">
+        <strong>Oh No!</strong> No games available in store</a>.
+      </div>
     {% endif %}
     </div>
   </div>
 </div>
 
 </main>
+{% endblock %}

@@ -3,25 +3,23 @@ from django.contrib.auth.decorators import login_required
 from .models import Game
 
 def homepage(request):
-    return render(request, 'store/base.html', {
-        'title': 'GameStore - Home',
-        'content': 'store/homepage.html'
+    return render(request, 'store/homepage.html', {
+        'title': 'GameStore - Home'
     })
 
 
 def store(request):
     game_set = Game.objects.all()
-    context = {
+    return render(request, 'store/store.html', context = {
         'game_set': game_set,
-        'title': 'GameStore - Store',
-        'content': 'store/store.html'}
-    return render(request, 'store/base.html', context)
+        'title': 'GameStore - Store'
+    })
+
 
 
 def library(request):
-    return render(request, 'store/base.html', {
+    return render(request, 'store/library.html', {
         'title': 'GameStore - Library',
-        'content': 'store/library.html'
     })
 
 # Helper methods

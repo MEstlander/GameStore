@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="{% static 'bootstrap/dist/css/bootstrap.css' %}">
     <script src="{% static 'jquery/dist/jquery.js' %}"></script>
     <script src="{% static 'bootstrap/dist/js/bootstrap.bundle.js' %}"></script>
-    <title>{{ title }}</title>
+    <title>{% block title %}{% endblock %}</title>
 </head>
 <body class="bg-light">
     <div class="container-fluid px-0">
@@ -35,12 +35,20 @@
                             Account
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            {% if user.is_developer %}
                             <a class="dropdown-item" href="#">View profile</a>
+                            <a class="dropdown-item" href="#">Register Game</a> 
+                            <div class="dropdown-divider"></div>       
                             <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+                            {% else %}
+                            <a class="dropdown-item" href="#">View profile</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+                            {% endif %}
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link disabled" href="#"></a>
+                        <a class="nav-link disabled" href="#">{{ user.username }}</a>
                     </li>
                     {% else %}
                     <li class="nav-item dropdown">
@@ -50,7 +58,7 @@
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{% url 'login' %}">Login</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{% url 'register' %}"></a>
+                            <a class="dropdown-item" href="{% url 'register' %}">Register</a>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -61,7 +69,8 @@
             </div>
         </nav>
 
-        {% include content %}
+        {% block content %}
+        {% endblock %}
 
     </div>
 </body>
