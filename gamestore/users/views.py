@@ -1,41 +1,16 @@
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-from django.contrib.auth import logout, login, authenticate
+from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
+from .models import User
 
 
 def registration(request):
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
-        if form.is_valid():
-            form.save()
-    else:
-        form = UserCreationForm()
-    return render(request, 'registration/base.html',{
-        'title': 'GameStore - Registration',
-        'content': 'registration/registration.html',
-        'form': form
-    })
-    
-
-def log_in(request):
-    if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password']
-        user = authenticate(request, username =username, password= password)
-        if user is not None:
-            login(request, user)
+        user_form = UserCreationForm(request.POST)
+        if user_form.is_valid():
+            user_form.save()
             return redirect('/')
-        else:
-            return redirect('/users/login/')
-    form = AuthenticationForm()
-    return render(request, 'registration/base.html',{
-        'title': 'GameStore - Login',
-        'content': 'registration/login.html',
-        'form': form
+    else:
+        user_form = UserCreationForm()
+    return render(request, 'registration/register',{
+        'form': user_form,
     })
-    
-
-def log_out(request):
-    logout(request)
-    return redirect('/')
-
