@@ -9,7 +9,15 @@
     <div style="display: inline-block; margin-top: 25vh">
       <form method="post" enctype="multipart/form-data" action="{% url 'register_game' %}">
         {% csrf_token %}
-        {{ form }}
+        <input class="form-control" type="text" name="title" maxlength="50" required="" placeholder="title">
+        <input class="form-control mt-1" type="text" name="description" maxlength="200" required="" placeholder="Description">
+        <div class="form-group">
+          <label class="mt-2 mb-1" for="id_thumbnail" style="color: darkslategrey">Thumbnail</label>
+          <input class="form-control-file" type="file" name="thumbnail" id="id_thumbnail">
+          <small id="fileHelp" class="form-text text-muted">Picture ratio preferrably 2:1 </small>
+        <input class="form-control mt-2" type="url" name="url" maxlength="200" required="" placeholder="Url">
+        <label class="mt-1 mb-1" for="id_price" style="color: darkslategrey">Price</label>
+        <input class="form-control" type="number" name="price" value="0" step="0.01" required="" id="id_price">
         <button class="form-control mt-2 btn btn-sm btn-outline-secondary" type="submit">Register</button>
       </form>
     </div>
