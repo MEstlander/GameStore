@@ -17,7 +17,7 @@
                   <p class="card-text"><strong>{{ game.title }}</strong><br>{{ game.description }}</p>
                   <p class="float-right">Dev: {{ game.developer }}</p>
                   <form action="#" method="get" id="{{ game.id }}"></form>
-                  <button type="submit" class="btn btn-sm btn-outline-secondary mr-auto" form="{{ game.id }}" value="Submit">Purchase</button>
+                  <button type="submit" class="btn btn-sm btn-outline-secondary mr-auto purchase" form="{{ game.id }}" value="Submit">Purchase</button>
                   <p class="ml-1 mt-1 mb-0" style="color: darkslategrey">{{ game.price}} $</p>
                 </div>
               </div>
@@ -37,4 +37,12 @@
 </div>
 
 </main>
+
+<script>
+    $("li.store").addClass("active")
+    $(".purchase").click(function() {
+        alert( "Buy Game" );
+    });
+</script>
+
 {% endblock %}

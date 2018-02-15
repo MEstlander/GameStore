@@ -20,7 +20,9 @@ def store(request):
 
 
 def library(request):
+    purchased_games = Game.objects.all()
     return render(request, 'store/library.html', {
+        'purchased_games': purchased_games,
         'title': 'GameStore - Library',
     })
 
