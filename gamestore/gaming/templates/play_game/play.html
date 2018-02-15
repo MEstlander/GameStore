@@ -2,8 +2,47 @@
 
 
 {% block content %}
-    <iframe width="800" height="600" src="{{ remote_server }}" id="iframe"></iframe>
+    <iframe src="{{ remote_server }}" id="iframe"></iframe>
     
+    <script type="text/javascript">
+        window.addEventListener("message", reciver, false)
+
+        function reciver(e) {
+            if (e.data.messageType === "SETTING") {
+                var width = e.data.options.width;
+                var height = e.data.options.height;
+                if(!isNaN(width)){
+                    if(width>800){
+                        width = 800;
+                    }else if(width<40){
+                        width = 40;
+                    }
+                    $('#iframe').css('width',width);
+                }
+                if(!isNaN(height)){
+                    if(height>600){
+                        height = 600;
+                    }else if(height<40){
+                        height = 40;
+                    }
+                    $('#iframe').css('height',height);
+                }
+            }
+            else if(e.data.messageType === "SCORE")
+                alert(e.data.score);
+            else if(e.data.messageType === "SAVE")
+                alert(e.data.gameState.score);
+            else if(e.data.messageType === "LOAD")
+                alert(e.data.messageType);
+            else if(e.data.messageType === "LOAD_REQUEST")
+                alert(e.data.messageType);
+            else if(e.data.messageType === "ERROR")
+                alert(e.data.messageType);
+            else alert('Wtf?'+ e.data.messageType)
+            
+            console.log(e);
+        };
+    </script>
     
 
 {% endblock %}
