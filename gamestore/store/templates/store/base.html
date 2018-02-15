@@ -37,7 +37,7 @@
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             {% if user.is_developer %}
                             <a class="dropdown-item" href="#">View profile</a>
-                            <a class="dropdown-item" href="#">Register Game</a> 
+                            <a class="dropdown-item" href="{% url 'register_game' %}">Register Game</a>
                             <div class="dropdown-divider"></div>       
                             <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
                             {% else %}

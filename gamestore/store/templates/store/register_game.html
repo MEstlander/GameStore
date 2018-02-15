@@ -1,0 +1,19 @@
+{% extends "store/base.html" %}
+
+{% block title %}Gamestore - Add Game{% endblock %}
+
+{% block content %}
+
+<main role="main">
+  <div class="justify-content-center row">
+    <div style="display: inline-block; margin-top: 25vh">
+      <form method="post" enctype="multipart/form-data" action="{% url 'register_game' %}">
+        {% csrf_token %}
+        {{ form }}
+        <button class="form-control mt-2 btn btn-sm btn-outline-secondary" type="submit">Register</button>
+      </form>
+    </div>
+  </div>
+</main>
+
+{% endblock %}

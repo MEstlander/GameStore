@@ -1,6 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+from users.decorators import developer_required
 from .models import Game
+from .forms import GameRegistrationForm
 
 def homepage(request):
     return render(request, 'store/homepage.html', {
@@ -22,16 +24,18 @@ def library(request):
         'title': 'GameStore - Library',
     })
 
-# Helper methods
 
-
-@login_required()
-def registerGame(request):
+@developer_required()
+def register_game(request):
     if request.method == 'POST':
-        form = GameForm(request.POST)
+        form = GameRegistrationForm(request.POST, request.FILES)
         if form.is_valid:
-            form.save()
+            f = form.save(commit=False)
+            f.developer = request.user
+            f.save()
+            return redirect('homepage')
     else:
-        form = GameFrom()
-    return render(request, 'store/game.html', {'form': form})
+        form = GameRegistrationForm()
+
+    return render(request, 'store/register_game.html', {'form': form})
 

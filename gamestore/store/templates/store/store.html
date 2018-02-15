@@ -14,14 +14,11 @@
               <div class="card mb-4 box-shadow">
                 <img class="card-img-top" src="{{ game.thumbnail.url }}" style="height: 225px; width: 100%; display: block;">
                 <div class="card-body">
-                  <p class="card-text">{{ game.description }}</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <form action="{{ game.url }}" method="get" id="{{ game.id }}"></form>
-                      <button type="submit" class="btn btn-sm btn-outline-secondary" form="{{ game.id }}" value="Submit">Purchase</button>
-                    </div>
-                  <small class="text-muted">{{ game.price}} money</small>
-                  </div>
+                  <p class="card-text"><strong>{{ game.title }}</strong><br>{{ game.description }}</p>
+                  <p class="float-right">Dev: {{ game.developer }}</p>
+                  <form action="#" method="get" id="{{ game.id }}"></form>
+                  <button type="submit" class="btn btn-sm btn-outline-secondary mr-auto" form="{{ game.id }}" value="Submit">Purchase</button>
+                  <p class="ml-1 mt-1 mb-0" style="color: darkslategrey">{{ game.price}} $</p>
                 </div>
               </div>
             </div>
