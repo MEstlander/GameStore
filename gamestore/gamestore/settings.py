@@ -34,7 +34,6 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'store.apps.StoreConfig',
-    'users.apps.UsersConfig',
     'gaming.apps.GamingConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -108,7 +107,7 @@ LOGIN_URL = '/accounts/login/'
 
 LOGOUT_URL = '/accounts/logout/'
 
-AUTH_USER_MODEL = 'users.User'
+AUTH_USER_MODEL = 'store.User'
 
 LOGIN_REDIRECT_URL = 'homepage'
 

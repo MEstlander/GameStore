@@ -71,11 +71,9 @@
       </div> <!--album-->
     {% endif %}
   </div>
-
-
   {% else %}
-    <div class="alert mx-auto p-5" role="alert">
-      <strong>No!</strong> Please <a href="{% url 'login' %}">log in</a> to view library content
+    <div class="alert mt-5 pt-5" role="alert">
+      <p class="text-center"><strong>No!</strong> Please <a href="{% url 'login' %}">log in</a> to view library content</p>
     </div>
   {% endif %}
 
