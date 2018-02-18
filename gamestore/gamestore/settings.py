@@ -27,7 +27,7 @@ SECRET_KEY = '3wmp5u3e#4vso-&xqk42c)po@mc+0kggjfzfn@gyo^gp6!_m5t'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['nameless-retreat-59006.herokuapp.com']
 
 
 # Application definition
