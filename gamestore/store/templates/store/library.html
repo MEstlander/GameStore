@@ -16,12 +16,12 @@
             {% for game in purchased_games %}
                 <div class="col-md-4">
                   <div class="card mb-4 box-shadow">
-                    <img class="card-img-top" src="{{ game.thumbnail.url }}" style="height: 225px; width: 100%; display: block;">
+                    <img class="card-img-top" src="{{ game.thumbnail.url }}" style="height: 225px; width: 100%; display: block;" onclick='window.location="localhost:8000/gaming/game/{{ game.title }}/"'>
                     <div class="card-body">
-                      <p class="card-text"><strong>{{ game.title }}</strong><br>{{ game.description }}</p>
+                      <p class="card-text"id="game"><strong>{{ game.title }}</strong><br>{{ game.description }}</p>
                       <p>Developer: {{ game.developer }}</p>
                       <div class="col-md-12 btn-group">
-                        <button type="button" class="col-md-3 btn btn-sm btn-outline-secondary play">play</button>
+                        <button type="button" class="col-md-3 btn btn-sm btn-outline-secondary play" onclick='window.location="localhost:8000/gaming/game/{{ game.title }}/"'>play</button>
                         <button type="button" class="col-md-6 btn btn-sm btn-outline-secondary leaderboard">Leaderboard</button>
                         <button type="button" class="col-md-3 btn btn-sm btn-outline-secondary share">Share</button>
                       </div>
@@ -48,12 +48,12 @@
             {% for game in purchased_games %}
             <div class="col-md-4">
               <div class="card mb-4 box-shadow">
-                <img class="card-img-top" src="{{ game.thumbnail.url }}" style="height: 225px; width: 100%; display: block;">
+                <img class="card-img-top" src="{{ game.thumbnail.url }}" style="height: 225px; width: 100%; display: block;" onclick='window.location="localhost:8000/gaming/game/{{ game.title }}/"'>
                 <div class="card-body">
                   <p class="card-text"><strong>{{ game.title }}</strong><br>{{ game.description }}</p>
                   <p>Developer: {{ game.developer }}</p>
                   <div class="col-md-12 btn-group">
-                    <button type="button" class="col-md-3 btn btn-sm btn-outline-secondary play">play</button>
+                    <button type="button" class="col-md-3 btn btn-sm btn-outline-secondary play" onclick='window.location="localhost:8000/gaming/game/{{ game.title }}/"'>Play</button>
                     <button type="button" class="col-md-6 btn btn-sm btn-outline-secondary leaderboard">Leaderboard</button>
                     <button type="button" class="col-md-3 btn btn-sm btn-outline-secondary share">Share</button>
                   </div>
@@ -85,12 +85,6 @@
         $(this).css({"transition": "opacity .5s ease-in-out", "opacity": "0.5"});
     }, function(){
         $(this).css("opacity", "1");
-    });
-    $(".card-img-top").click(function() {
-        alert( "Play game" );
-    });
-    $(".play").click(function() {
-        alert( "Play game" );
     });
     $(".leaderboard").click(function() {
         alert( "Show leaderboard" );
