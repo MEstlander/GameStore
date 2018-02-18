@@ -149,7 +149,7 @@ STATICFILES_FINDERS = [
 
 # Yarn
 
-YARN_ROOT_PATH = BASE_DIR
+YARN_ROOT_PATH = '.'
 
 MEDIA_ROOT = (
     os.path.join(BASE_DIR, 'media')
