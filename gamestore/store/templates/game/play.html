@@ -1,5 +1,6 @@
-{% extends "play_game/base.html" %}
+{% extends "store/base.html" %}
 
+{% block title %}Gamestore - GameTitle{% endblock %}
 
 {% block content %}
     <iframe src="{{ remote_server }}" id="iframe"></iframe>
@@ -46,4 +47,3 @@
     
 
 {% endblock %}
-

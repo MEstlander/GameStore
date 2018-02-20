@@ -1,0 +1,29 @@
+{% extends 'store/base.html' %}
+
+{% block content %}
+
+<main role="main">
+  <div class="justify-content-center row">
+    <div style="display: inline-block; margin-top: 20vh">
+      <form action="http://payments.webcourse.niksula.hut.fi/pay/" method="POST">
+        {% csrf_token %}
+        <input type="hidden" name="pid" value="{{ payment_details.pid }}" />
+        <input type="hidden" name="sid" value="{{ payment_details.sid }}" />
+        <input type="hidden" name="success_url"
+               value="{{ payment_details.success_url }}" />
+        <input type="hidden" name="cancel_url"
+               value="{{ payment_details.cancel_url }}" />
+        <input type="hidden" name="error_url"
+               value="{{ payment_details.error_url }}" />
+        <input type="hidden" name="checksum"
+               value="{{ payment_details.checksum }}" />
+
+        <label for="id_amount">Amount</label>
+        <input type="text" id="id_amount" name="amount" value="{{ payment_details.amount }}" readonly="readonly"/>
+        <input type="submit" value="Accept Payment"/>
+      </form>
+    </div>
+  </div>
+</main>
+
+{% endblock %}

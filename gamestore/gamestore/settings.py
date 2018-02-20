@@ -27,14 +27,13 @@ SECRET_KEY = '3wmp5u3e#4vso-&xqk42c)po@mc+0kggjfzfn@gyo^gp6!_m5t'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['nameless-retreat-59006.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['nameless-retreat-59006.herokuapp.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
 
 INSTALLED_APPS = [
     'store.apps.StoreConfig',
-    'gaming.apps.GamingConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -105,9 +104,9 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 ##Authentication
-LOGIN_URL = '/accounts/login/'
+LOGIN_URL = '/account/login/'
 
-LOGOUT_URL = '/accounts/logout/'
+LOGOUT_URL = '/account/logout/'
 
 AUTH_USER_MODEL = 'store.User'
 

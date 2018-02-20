@@ -15,9 +15,8 @@
                 <img class="card-img-top" src="{{ game.thumbnail.url }}" style="height: 225px; width: 100%; display: block;">
                 <div class="card-body">
                   <p class="card-text"><strong>{{ game.title }}</strong><br>{{ game.description }}</p>
-                  <p class="float-right">Dev: {{ game.developer }}</p>
-                  <form action="#" method="get" id="{{ game.id }}"></form>
-                  <button type="submit" class="btn btn-sm btn-outline-secondary mr-auto purchase" form="{{ game.id }}" value="Submit">Purchase</button>
+                  <p class="float-right">{{ game.developer }}</p>
+                  <a href="{% url 'payment' game_title=game.title %}" class="btn btn-sm btn-outline-secondary mr-auto">Purchase</a>
                   <p class="ml-1 mt-1 mb-0" style="color: darkslategrey">{{ game.price}} $</p>
                 </div>
               </div>
@@ -40,9 +39,6 @@
 
 <script>
     $("li.store").addClass("active")
-    $(".purchase").click(function() {
-        alert( "Buy Game" );
-    });
 </script>
 
 {% endblock %}

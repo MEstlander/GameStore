@@ -7,7 +7,7 @@ class User(AbstractUser):
 
 
 class Game(models.Model):
-    title = models.CharField(max_length=50)
+    title = models.CharField(max_length=50, unique=True)
     description = models.CharField(max_length=200)
     thumbnail = models.ImageField(upload_to='thumbnails/', default='thumbnails/default.png')
     url = models.URLField(max_length=200)
@@ -19,6 +19,6 @@ class Game(models.Model):
         return self.title
 
 
-class PurchasedGames(models.Model):
-    user = models.ForeignKey(User, on_delete=models.DO_NOTHING)
-    game = models.ForeignKey(Game, on_delete=models.DO_NOTHING)
+class Payment(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    game = models.ForeignKey(Game, on_delete=models.CASCADE)
