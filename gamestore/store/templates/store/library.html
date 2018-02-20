@@ -43,8 +43,8 @@
         <div class="container">
           <h1 style="color: darkslategrey;">Inventory</h1>
           <div class="row">
-            {% if purchased_games %}
-            {% for game in purchased_games %}
+            {% if inventory %}
+            {% for game in inventory %}
             <div class="col-md-4">
               <div class="card mb-4 box-shadow">
                 <img class="card-img-top" src="{{ game.thumbnail.url }}" style="height: 225px; width: 100%; display: block;">

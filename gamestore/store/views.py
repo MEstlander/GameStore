@@ -42,7 +42,7 @@ def store(request):
 
 def payment(request, game_title):
     game = Game.objects.get(title=game_title)
-    pid = str(game.pk) + str(request.user.username)
+    pid = str(game.pk)
     sid = '43124917'
     amount = game.price
     success_url = request.build_absolute_uri(reverse('payment_success'))
@@ -65,6 +65,15 @@ def payment(request, game_title):
     return render(request, 'payment/verification.html', {'payment_details': payment_details})
 
 def payment_success(request):
+    if request.method == 'GET':
+        pid = request.GET.get('pid')
+        new_payment = Payment(
+            user=request.user,
+            game=Game.objects.get(id=pid)
+        )
+        new_payment.save()
+    else:
+        HttpResponse('Only GET allowed')
     return render(request, 'payment/success.html')
 
 def payment_cancel(request):
@@ -75,9 +84,11 @@ def payment_error(request):
 
 
 def library(request):
-    purchased_games = Game.objects.all()
+    purchased_games = Game.objects.filter(payment__user=request.user)
+    inventory = Game.objects.filter(developer=request.user)
     return render(request, 'store/library.html', {
         'purchased_games': purchased_games,
+        'inventory': inventory,
         'title': 'GameStore - Library',
     })
 
