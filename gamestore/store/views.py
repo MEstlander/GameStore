@@ -6,8 +6,9 @@ from django.contrib.auth.decorators import login_required
 
 from store.decorators import developer_required
 from .forms import RegistrationForm, GameRegistrationForm
-from .models import Game, Payment
+from .models import Game, Payment, Highscores
 from hashlib import md5
+import json
 
 def registration(request):
     if request.method == 'POST':
@@ -119,9 +120,22 @@ def play(request, game_title):
     elif request.method == 'POST':
         #TODO: add methods that add scores and saved games to db
         #remove current render when done just here so the server can be run
-        return render(request,"game/play.html", {'remote_server': game.url})
-
+        score = request.POST.get('Score')
+        print(score)
+        print("\n HELLOOOOOO \n")
+        save = Highscores.objects.create(user=request.user , game=game, score=score)
+        #save.save()
+        reposnse_data = {}
+        reposnse_data['result'] = 'Score saved successfully'
+        reposnse_data['score'] = score
+        reposnse_data['user'] = request.user.username
+        return HttpResponse(
+            json.dumps(reposnse_data),
+            content_type="application/json"
+        )
 
     else:
         #If request method is not get or post it's invalid
         return HttpResponse(405, content="Invalid method")
+
+        

@@ -9,6 +9,10 @@
         window.addEventListener("message", reciver, false)
 
         function reciver(e) {
+            var gamescore = parseInt(e.data.score);
+            var middlewaretoken = "{{ csrf_token  }}";    
+
+
             if (e.data.messageType === "SETTING") {
                 var width = e.data.options.width;
                 var height = e.data.options.height;
@@ -30,7 +34,20 @@
                 }
             }
             else if(e.data.messageType === "SCORE")
-                alert(e.data.score);
+
+                $.ajax({
+                    url: "#",
+                    type: "POST",
+                    data: {Score: gamescore, csrfmiddlewaretoken: middlewaretoken},
+
+                    success: function() {
+                        console.log(e.data);
+                        console.log("success");
+                    },
+                    error : function(xhr,errmsg,err) {
+                        console.log(errmsg);
+                        console.log(xhr.status + ": " + xhr.responseText);
+                }});
             else if(e.data.messageType === "SAVE")
                 alert(e.data.gameState.score);
             else if(e.data.messageType === "LOAD")

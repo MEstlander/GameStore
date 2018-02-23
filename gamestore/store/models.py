@@ -22,3 +22,12 @@ class Game(models.Model):
 class Payment(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     game = models.ForeignKey(Game, on_delete=models.CASCADE)
+
+
+class Highscores(models.Model):
+    user = models.ForeignKey(User, related_name="hsuser", on_delete=models.CASCADE)
+    game = models.ForeignKey(Game, related_name="hsgame", on_delete=models.CASCADE)
+    score = models.IntegerField(default=0)
+
+    def __str__(self):
+        return (self.user.username, self.score)
