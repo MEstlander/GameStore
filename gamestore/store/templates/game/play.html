@@ -67,7 +67,7 @@
         <h2>Highscores</h2>
         
         {% for score in highscores %}
-            <ol>{{forloop.counter}}. {{ score.score }}</ol>
+            <ol>{{forloop.counter}}. {{ score.score }}, {{ score.user }}</ol>
         {% endfor %}
     </div>
     <div>Last Score: <span id='lastscore'>0</span></div>
