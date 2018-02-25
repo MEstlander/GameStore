@@ -9,7 +9,21 @@
     <div style="display: inline-block; margin-top: 25vh">
       <form method="post" action="{% url 'register' %}">
         {% csrf_token %}
-        <input class="form-control" type="text" name="username" required="" placeholder="Username">
+        {% if form.errors %}
+        {% for field in form %}
+        {% for error in field.errors %}
+        <div class="alert alert-danger">
+          <strong>{{ error|escape }}</strong>
+        </div>
+        {% endfor %}
+        {% endfor %}
+        {% for error in form.non_field_errors %}
+        <div class="alert alert-danger">
+          <strong>{{ error|escape }}</strong>
+        </div>
+        {% endfor %}
+        {% endif %}
+        <input class="form-control" type="text" name="username" maxlength="150" autofocus="" required="" placeholder="Username">
         <p class="ml-3 mt-1" style="color: darkslategrey">Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.</p>
         <input class="form-control" type="password" name="password1" required="" placeholder="Password">
         <ul class="mr-2 mt-1" style="color: darkslategrey">

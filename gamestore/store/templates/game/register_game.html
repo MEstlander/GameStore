@@ -9,7 +9,21 @@
     <div style="display: inline-block; margin-top: 25vh">
       <form method="post" enctype="multipart/form-data" action="{% url 'register_game' %}">
         {% csrf_token %}
-        <input class="form-control" type="text" name="title" maxlength="50" required="" placeholder="Title">
+        {% if form.errors %}
+        {% for field in form %}
+        {% for error in field.errors %}
+        <div class="alert alert-danger">
+          <strong>{{ error|escape }}</strong>
+        </div>
+        {% endfor %}
+        {% endfor %}
+        {% for error in form.non_field_errors %}
+        <div class="alert alert-danger">
+          <strong>{{ error|escape }}</strong>
+        </div>
+        {% endfor %}
+        {% endif %}
+        <input class="form-control" type="text" name="title" maxlength="50" required="" placeholder="Title" id="id_title">
         <input class="form-control mt-1" type="text" name="description" maxlength="200" required="" placeholder="Description">
         <div class="form-group">
           <label class="mt-2 mb-1" for="id_thumbnail" style="color: darkslategrey">Thumbnail</label>

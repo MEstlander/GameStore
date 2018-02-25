@@ -1,7 +1,11 @@
 {% extends 'store/base.html' %}
 
+{% block title %}Payment - Error{% endblock %}
+
 {% block content %}
-
-<p>Error</p>
-
+<div class="text-center mt-5">
+  <div class="text-left" style="display: inline-block;">
+    <p><strong>Payment error </strong>return to <a href="{% url 'store' %}">store</a></p>
+  </div>
+</div>
 {% endblock %}

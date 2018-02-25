@@ -9,8 +9,8 @@
       <div style="display: inline-block; margin-top: 35vh">
         <form method="post" action="{% url 'login' %}">
           {% csrf_token %}
-          <input class="form-control" type="text" name="username" placeholder="Username">
-          <input class="form-control mt-1" type="password" name="password" placeholder="Password">
+          <input class="form-control" type="text" name="username" autofocus="" maxlength="254" required="" placeholder="Username" autocomplete="off">
+          <input class="form-control mt-1" type="password" required="" name="password" placeholder="Password" autocomplete="off">
           <button class="form-control mt-2 btn btn-sm btn-outline-secondary" type="submit">Login</button>
         </form>
       </div>
