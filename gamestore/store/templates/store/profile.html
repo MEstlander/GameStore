@@ -1,0 +1,59 @@
+{% extends "store/base.html" %}
+
+{% block title %}Gamestore - My profile{% endblock %}
+
+{% block content %}
+<div class="ml-5 mt-5">
+  <div class="text-left" style="display: inline-block;">
+    <h3>Account details</h3>
+    <p><strong>Username: </strong>{{ user.username}}</p>
+    <h3>Payments</h3>
+    {% if payments %}
+      <table class="table">
+        <tr>
+          <th>ID</th>
+          <th>Game</th>
+          <th>Amount</th>
+          <th>Date</th>
+        </tr>
+      {% for payment in payments %}
+        <tr>
+          <td>{{ payment.id }}</td>
+          <td>{{ payment.game }}</td>
+          <td>{{ payment.amount }}</td>
+          <td>{{ payment.date }}</td>
+        </tr>
+      {% endfor %}
+      </table>
+    {% else %}
+    <p>You have no payments</p>
+    {% endif %}
+    {% if user.is_developer %}
+    <h3>Sale stats</h3>
+    {% if developer_games %}
+    <table class="table">
+      <tr>
+        <th>Game</th>
+        <th>Purchases</th>
+        <th>Price</th>
+        <th>Total</th>
+      </tr>
+      {% for game in developer_games %}
+      <tr>
+        <td>{{ game.title }}</td>
+        <td>{{ game.purchases }}</td>
+        <td>{{ game.price }}</td>
+        <td>{{ game.total }}</td>
+      </tr>
+      {% endfor %}
+      <tfoot>
+        <td colspan="4">Total revenue: {{ total_revenue }}</td>
+      </tfoot>
+    </table>
+    {% else %}
+    <p>You have no sold games</p>
+    {% endif %}
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

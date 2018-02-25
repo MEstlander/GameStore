@@ -3,14 +3,41 @@
 {% block title %}Gamestore - GameTitle{% endblock %}
 
 {% block content %}
-    <iframe src="{{ remote_server }}" id="iframe"></iframe>
-    
+<div class="p-5 row">
+    <div class="col-md-9 embed-responsive embed-responsive-16by9">
+        <iframe id="iframe" class="embed-responsive-item" src="{{ remote_server }}"></iframe>
+    </div>
+    <div class="col-md-3 text-center">
+        {% if top_highscores %}
+        <h3>Top 5</h3>
+        <table class="table">
+            <tr>
+                <th>Rank</th>
+                <th>Username</th>
+                <th>Score</th>
+            </tr>
+            {% for score in top_highscores %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ score.user }}</td>
+                <td>{{ score.score }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% endif %}
+        <p>Show all <a href="{% url 'leaderboard' game_title=game_title %}">Highscores</a></p>
+        <p>Your last score: <span id='lastscore'>0</span></p>
+    </div>
+</div>
+
+
+
     <script type="text/javascript">
         window.addEventListener("message", reciver, false)
 
         function reciver(e) {
             var gamescore = parseInt(e.data.score);
-            var middlewaretoken = "{{ csrf_token  }}";    
+            var middlewaretoken = "{{ csrf_token  }}";
             if(e.data.messageType === "SCORE")
                 $('#lastscore').text(gamescore);
 
@@ -35,7 +62,7 @@
                 }
             }
             else if(e.data.messageType === "SCORE")
-                
+
                 $.ajax({
                     url: "#",
                     type: "POST",
@@ -58,17 +85,8 @@
             else if(e.data.messageType === "ERROR")
                 alert(e.data.messageType);
             else alert('Wtf?'+ e.data.messageType)
-            
+
             console.log(e);
         };
     </script>
-    
-    <div id="highscore" style="float: right; width:30%; border:2px black; padding: 10px;">
-        <h2>Highscores</h2>
-        
-        {% for score in highscores %}
-            <ol>{{forloop.counter}}. {{ score.score }}, {{ score.user }}</ol>
-        {% endfor %}
-    </div>
-    <div>Last Score: <span id='lastscore'>0</span></div>
 {% endblock %}

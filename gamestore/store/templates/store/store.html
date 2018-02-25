@@ -5,35 +5,37 @@
 {% block content %}
 <main role="main">
 
-<div class="album py-5 bg-light">
-  <div class="container">
+{% if game_set %}
+  <div class="album my-5 bg-light">
+    <div class="container">
+    <h1 class="text-center mb-3" style="color: darkslategrey;">All games</h1>
     <div class="row">
-    {% if game_set %}
-      {% for game in game_set %}
-            <div class="col-md-4">
-              <div class="card mb-4 box-shadow">
-                <img class="card-img-top" src="{{ game.thumbnail.url }}" style="height: 225px; width: 100%; display: block;">
-                <div class="card-body">
-                  <p class="card-text"><strong>{{ game.title }}</strong><br>{{ game.description }}</p>
-                  <p class="float-right">{{ game.developer }}</p>
-                  <a href="{% url 'payment' game_title=game.title %}" class="btn btn-sm btn-outline-secondary mr-auto">Purchase</a>
-                  <p class="ml-1 mt-1 mb-0" style="color: darkslategrey">{{ game.price}} $</p>
+    {% for game in game_set %}
+          <div class="col-md-4">
+            <div class="card mb-4 box-shadow">
+              <img class="card-img-top" src="{{ game.thumbnail.url }}" style="height: 225px; width: 100%; display: block;">
+              <div class="card-body">
+                <p class="card-text"><strong>{{ game.title }}</strong><br>{{ game.description }}</p>
+                <div class="row">
+                  <a href="{% url 'payment' game_title=game.title %}" class="btn btn-sm btn-outline-secondary ml-3">Purchase</a>
+                  <p class="ml-3 mt-1 mb-0" style="color: darkslategrey">{{ game.price}} $</p>
                 </div>
               </div>
             </div>
-        {% if forloop.counter|divisibleby:3 %}
           </div>
-          <div class="row">
-        {% endif %}
-      {% endfor %}
-    {% else %}
-      <div class="alert mx-auto p-5" role="alert">
-        <strong>Sorry!</strong> No games available in store
-      </div>
-    {% endif %}
+      {% if forloop.counter|divisibleby:3 %}
+        </div>
+        <div class="row">
+      {% endif %}
+    {% endfor %}
+    </div>
     </div>
   </div>
-</div>
+{% else %}
+  <div class="alert mt-5 pt-5" role="alert">
+    <p class="text-center"><strong>Sorry!</strong> No games available in store</p>
+  </div>
+{% endif %}
 
 </main>
 

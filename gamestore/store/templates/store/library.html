@@ -5,75 +5,73 @@
 {% block content %}
 <main role="main">
 
-  {% if user.is_authenticated %}
-    <!--Purchased Games-->
-  <div class="p-0 mt-5">
-    <div class="album pt-3 pb-5 bg-light">
+{% if user.is_authenticated %}
+  <!--Purchased Games-->
+  {% if purchased_games %}
+    <div class="album my-5 bg-light">
       <div class="container">
-        <h1 style="color: darkslategrey;">Purchased Games</h1>
-        <div class="row">
-          {% if purchased_games %}
+        <h1 class="text-center mb-3" style="color: darkslategrey;">Purchased games</h1>
+          <div class="row">
             {% for game in purchased_games %}
-                <div class="col-md-4">
-                  <div class="card mb-4 box-shadow">
-                    <img class="card-img-top" src="{{ game.thumbnail.url }}" style="height: 225px; width: 100%; display: block;">
-                    <div class="card-body">
-                      <p class="card-text"id="game"><strong>{{ game.title }}</strong><br>{{ game.description }}</p>
-                      <div class="col-md-12 btn-group">
-                        <a href="{% url 'play' game_title=game.title %}" class="col-md-3 btn btn-sm btn-outline-secondary">Play</a>
-                        <a href="#" class="col-md-6 btn btn-sm btn-outline-secondary">Leaderboard</a>
-                        <a href="#" class="col-md-3 btn btn-sm btn-outline-secondary">Share</a>
-                      </div>
+              <div class="col-md-4">
+                <div class="card mb-4 box-shadow">
+                  <img class="card-img-top" src="{{ game.thumbnail.url }}" style="height: 225px; width: 100%; display: block;">
+                  <div class="card-body">
+                    <p class="card-text"><strong>{{ game.title }}</strong><br>{{ game.description }}</p>
+                    <div class="row">
+                        <a href="{% url 'play' game_title=game.title %}" class="btn btn-sm btn-outline-secondary offset-1 col-md-4">Play</a>
+                        <a href="{% url 'leaderboard' game_title=game.title %}" class="btn btn-sm btn-outline-secondary offset-1 col-md-4">Leaderboard</a>
                     </div>
                   </div>
                 </div>
-                {% if forloop.counter|divisibleby:3 %}
-                  </div>
-                  <div class="row">
-                {% endif %}
-            {% endfor %}
-          {% endif %}
-        </div> <!--row-->
-      </div> <!--container-->
-    </div> <!--album-->
+              </div>
+            {% if forloop.counter|divisibleby:3 %}
+              </div>
+              <div class="row">
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  {% else %}
+  <div class="alert mt-5 pt-5" role="alert">
+    <p class="text-center"><strong>Your game library is empty.</strong> Buy games in <a href="{% url 'store' %}">store.</a></p>
+  </div>
+  {% endif %}
 
-    <!--Developed Games-->
-    {% if user.is_developer %}
-      <div class="album pt-3 pb-5 bg-light">
-        <div class="container">
-          <h1 style="color: darkslategrey;">Inventory</h1>
-          <div class="row">
-            {% if inventory %}
-            {% for game in inventory %}
-            <div class="col-md-4">
-              <div class="card mb-4 box-shadow">
-                <img class="card-img-top" src="{{ game.thumbnail.url }}" style="height: 225px; width: 100%; display: block;">
-                <div class="card-body">
-                  <p class="card-text"id="game"><strong>{{ game.title }}</strong><br>{{ game.description }}</p>
-                  <div class="col-md-12 btn-group">
-                    <a href="{% url 'play' game_title=game.title %}" class="col-md-3 btn btn-sm btn-outline-secondary">Play</a>
-                    <a href="#" class="col-md-6 btn btn-sm btn-outline-secondary">Leaderboard</a>
-                    <a href="#" class="col-md-3 btn btn-sm btn-outline-secondary">Share</a>
-                  </div>
+  {% if developer_games %}
+    <div class="album my-5 bg-light">
+      <div class="container">
+        <h1 class="text-center mb-3" style="color: darkslategrey;">My games</h1>
+        <div class="row">
+          {% for game in developer_games %}
+          <div class="col-md-4">
+            <div class="card mb-4 box-shadow">
+              <img class="card-img-top" src="{{ game.thumbnail.url }}" style="height: 225px; width: 100%; display: block;">
+              <div class="card-body">
+                <p class="card-text"><strong>{{ game.title }}</strong><br>{{ game.description }}</p>
+                <div class="row">
+                  <a href="{% url 'play' game_title=game.title %}" class="btn btn-sm btn-outline-secondary offset-1 col-md-4">Play</a>
+                  <a href="{% url 'leaderboard' game_title=game.title %}" class="btn btn-sm btn-outline-secondary offset-1 col-md-4">Leaderboard</a>
                 </div>
               </div>
             </div>
-            {% if forloop.counter|divisibleby:3 %}
           </div>
-          <div class="row">
-            {% endif %}
-            {% endfor %}
-            {% endif %}
-          </div> <!--row-->
-        </div> <!--container-->
-      </div> <!--album-->
-    {% endif %}
-  </div>
-  {% else %}
-    <div class="alert mt-5 pt-5" role="alert">
-      <p class="text-center">Please <a href="{% url 'login' %}">log in</a> to view library content</p>
+          {% if forloop.counter|divisibleby:3 %}
+        </div>
+        <div class="row">
+          {% endif %}
+          {% endfor %}
+        </div>
+      </div>
     </div>
   {% endif %}
+
+{% else %}
+  <div class="alert mt-5 pt-5" role="alert">
+    <p class="text-center">Please <a href="{% url 'login' %}">log in</a> to view library content</p>
+  </div>
+{% endif %}
 
 </main>
 

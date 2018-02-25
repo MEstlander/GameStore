@@ -1,0 +1,32 @@
+{% extends 'store/base.html' %}
+
+{% block title %}{{ game_title }} - Leaderboard{% endblock %}
+
+{% block content %}
+
+<div class="text-center mt-5" class="mt-5">
+  <div style="display: inline-block; color: darkslategrey;">
+    <h2>{{ game_title }} Leaderboard</h2>
+    {% if highscores %}
+      <table class="table">
+        <tr>
+          <th>Rank</th>
+          <th>Username</th>
+          <th>Score</th>
+        </tr>
+        {% for score in highscores %}
+        <tr>
+          <td>{{ forloop.counter }}</td>
+          <td>{{ score.user }}</td>
+          <td>{{ score.score }}</td>
+        </tr>
+        {% endfor %}
+      </table>
+    {% else %}
+      <div class="text-left" style="display: inline-block;">
+        <p><strong>No highscores yet</strong></a></p>
+      </div>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

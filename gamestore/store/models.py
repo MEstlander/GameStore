@@ -26,13 +26,10 @@ class Payment(models.Model):
     date = models.DateTimeField(auto_now_add=True)
 
 
-class Highscores(models.Model):
-    user = models.ForeignKey(User, related_name="hsuser", on_delete=models.CASCADE)
-    game = models.ForeignKey(Game, related_name="hsgame", on_delete=models.CASCADE)
+class Highscore(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    game = models.ForeignKey(Game, on_delete=models.CASCADE)
     score = models.IntegerField(default=0)
 
     class Meta:
         ordering=['-score']
-
-    def __str__(self):
-        return (self.user.username, self.score)
