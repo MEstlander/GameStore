@@ -29,5 +29,8 @@ class Highscores(models.Model):
     game = models.ForeignKey(Game, related_name="hsgame", on_delete=models.CASCADE)
     score = models.IntegerField(default=0)
 
+    class Meta:
+        ordering=['-score']
+
     def __str__(self):
         return (self.user.username, self.score)
