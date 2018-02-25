@@ -153,10 +153,10 @@ def register_game(request):
 @login_required
 def play(request, game_title):
     game = get_object_or_404(Game, title=game_title)
-
+    highscores = game.hsgame.all()
     if request.method == 'GET':
         #When you are redirected to an url it loads the game
-        return render(request,"game/play.html", {'remote_server': game.url})
+        return render(request,"game/play.html", {'remote_server': game.url,'highscores': highscores})
 
     elif request.method == 'POST':
         #TODO: add methods that add scores and saved games to db
