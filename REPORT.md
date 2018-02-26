@@ -19,7 +19,7 @@ All done except categories or search function <br>
 __Basic developer functionalities (mandatory 100-200 points):__
 
 Games only dev can add games to their own inventories, dev’s can’t modify but would be unfair to remove games as they would be removed from players aswell, so it’s a feature! <br>
-150/200
+200/200
 
 __Game/service interaction (mandatory 100-200 points):__
 
@@ -30,9 +30,22 @@ You can submit score and updates latest submitted score will be shown, highscore
 __Quality of Work (mandatory 0-100 points)__
 
 No test code was written but all uses cases were tested, Styling is decent in our opinion. <br> 
-50/100
+75/100
 
 __Non-functional requirements (mandatory 0-200 points)__
 
 Project plan was conclusive and teamwork went well in our opinion. Documentation might be a little lacking. <br>
-150/200
+200/200
+
+
+__Problems__
+
+We tried creating a structure with multiple apps but started run into more issues with it than we saw it gave benefit and switches to moving all models and so forth the same files.
+
+We also tried implementing save and load feature but had problems with getting javascript to parse the string after it was saved and getting csrf issues.
+
+__Dividing the work__
+
+At the start we tried to working in the same space. However we are working on another project currently together that has some same or similar things(bootstrap, deploying to a server) so people gravited towards what they were more familiar with and felt they would benefit from doing more of. 
+
+Rasmus did more of the layout and design but also payment and authentication, Lauri was the main driver in deploying and Max did the playgame and highscore part. But alot of the work that we did early on was more done together. 
