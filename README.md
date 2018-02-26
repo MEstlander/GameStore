@@ -5,7 +5,7 @@ __Team__ <br>
 
 __Goal__ <br>
 In this project, we will build an online game store for javascript games. The service will support both players and developers. Developers will be able to sell their games to the service and players to buy and play them on the platform.
-  
+
 The project will be coded using Django framework.
 
 __Plans__
@@ -55,3 +55,6 @@ SQL injection protection <br>
 Django’s querysets are protected from SQL injection since their queries are constructed using query parameterization.
 
 And of course we will not share any secret keys in code and version control.
+
+__Report__<br>
+[Link to report](./REPORT.md)
