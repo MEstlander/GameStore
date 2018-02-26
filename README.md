@@ -5,7 +5,7 @@ __Team__ <br>
 
 __Goal__ <br>
 In this project, we will build an online game store for javascript games. The service will support both players and developers. Developers will be able to sell their games to the service and players to buy and play them on the platform.
-
+ 
 The project will be coded using Django framework.
 
 __Plans__
