@@ -14,7 +14,6 @@ game-store.iml
 __pycache__/
 local_settings.py
 *migrations/
-media/
 
 .env
 *.sqlite3
