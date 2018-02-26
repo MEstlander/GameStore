@@ -54,4 +54,6 @@ __Link and instructions__
 
 Link: https://salty-mesa-49148.herokuapp.com/
 
-You can find the registration link from the account dropdown menu. If you register as a developer you can find the register game link from the account menu. The rest should be fairly self-explanatory.
+You can find the registration link from the account dropdown menu. If you register as a developer you can find the register game link from the account menu. The rest should be fairly self-explanatory. Link currently has debugging as true because we ran into last minute issues
+
+(Link with debug = false: https://nameless-retreat-59006.herokuapp.com)
