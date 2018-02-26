@@ -35,7 +35,7 @@ No test code was written but all uses cases were tested, Styling is decent in ou
 __Non-functional requirements (mandatory 0-200 points)__
 
 Project plan was conclusive and teamwork went well in our opinion. Documentation might be a little lacking. <br>
-200/200
+175/200
 
 
 __Problems__
@@ -48,4 +48,10 @@ __Dividing the work__
 
 At the start we tried to working in the same space. However we are working on another project currently together that has some same or similar things(bootstrap, deploying to a server) so people gravited towards what they were more familiar with and felt they would benefit from doing more of. 
 
-Rasmus did more of the layout and design but also payment and authentication, Lauri was the main driver in deploying and Max did the playgame and highscore part. But alot of the work that we did early on was more done together. 
+Rasmus did layout and design of the website and also payment and authentication, Lauri did the deploying and Max did the playgame and highscore part. But alot of the work that we did early on was more done together. 
+
+__Link and instructions__
+
+Link: https://nameless-retreat-59006.herokuapp.com/
+
+You can find the registration link from the account dropdown menu. If you register as a developer you can get find the register game link from the account menu. The rest should be fairly self-explanatory.
