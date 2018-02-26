@@ -27,7 +27,7 @@ SECRET_KEY = '3wmp5u3e#4vso-&xqk42c)po@mc+0kggjfzfn@gyo^gp6!_m5t'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['salty-mesa-49148','nameless-retreat-59006.herokuapp.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['salty-mesa-49148.herokuapp.com','nameless-retreat-59006.herokuapp.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
