@@ -1,3 +1,4 @@
+__Picture of backlogs current state__
 ![backlog](images/backlog_final.png)
 
 __Minimum functional requirements__
