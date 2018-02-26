@@ -54,4 +54,4 @@ __Link and instructions__
 
 Link: https://nameless-retreat-59006.herokuapp.com/
 
-You can find the registration link from the account dropdown menu. If you register as a developer you can get find the register game link from the account menu. The rest should be fairly self-explanatory.
+You can find the registration link from the account dropdown menu. If you register as a developer you can find the register game link from the account menu. The rest should be fairly self-explanatory.
