@@ -1,4 +1,6 @@
-__Picture of backlogs current state__
+__Picture of backlog final state__  
+
+  
 ![backlog](images/backlog_final.png)
 
 __Minimum functional requirements__
@@ -29,7 +31,7 @@ You can submit score and updates latest submitted score will be shown, highscore
 
 __Quality of Work (mandatory 0-100 points)__
 
-No test code was written but all uses cases were tested, Styling is decent in our opinion. <br> 
+No test code was written but all uses cases were tested, Styling is decent in our opinion. <br>
 75/100
 
 __Non-functional requirements (mandatory 0-200 points)__
@@ -44,16 +46,18 @@ We tried creating a structure with multiple apps but started run into more issue
 
 We also tried implementing save and load feature but had problems with getting javascript to parse the string after it was saved and getting csrf issues.
 
+We had problems with media files when debugging. Therefore two links first with debug=True, second with debug=False. Game thumbnails won't show in link 2.
+
 __Dividing the work__
 
-At the start we tried to working in the same space. However we are working on another project currently together that has some same or similar things(bootstrap, deploying to a server) so people gravited towards what they were more familiar with and felt they would benefit from doing more of. 
+At the start we tried to working in the same space. However we are working on another project currently together that has some same or similar things(bootstrap, deploying to a server) so people gravited towards what they were more familiar with and felt they would benefit from doing more of.
 
-Rasmus did layout and design of the website and also payment and authentication, Lauri did the deploying and Max did the playgame and highscore part. But alot of the work that we did early on was more done together. 
+Rasmus did layout and design of the website and also payment and authentication, Lauri did the deploying and Max did the playgame and highscore part. But alot of the work that we did early on was more done together.
 
 __Link and instructions__
 
 Link: https://salty-mesa-49148.herokuapp.com/
 
-You can find the registration link from the account dropdown menu. If you register as a developer you can find the register game link from the account menu. The rest should be fairly self-explanatory. Link currently has debugging as true because we ran into last minute issues
+Link 2 (debug = false): https://nameless-retreat-59006.herokuapp.com)
 
-(Link with debug = false: https://nameless-retreat-59006.herokuapp.com)
+You can find the registration link from the account dropdown menu. If you register as a developer you can find the register game link from the account menu. The rest should be fairly self-explanatory. Link currently has debugging as true because we ran into last minute issues
