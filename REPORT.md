@@ -52,6 +52,6 @@ Rasmus did layout and design of the website and also payment and authentication,
 
 __Link and instructions__
 
-Link: https://nameless-retreat-59006.herokuapp.com/
+Link: https://salty-mesa-49148.herokuapp.com/
 
 You can find the registration link from the account dropdown menu. If you register as a developer you can find the register game link from the account menu. The rest should be fairly self-explanatory.
