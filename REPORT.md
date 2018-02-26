@@ -40,7 +40,7 @@ Project plan was conclusive and teamwork went well in our opinion. Documentation
 
 __Problems__
 
-We tried creating a structure with multiple apps but started run into more issues with it than we saw it gave benefit and switches to moving all models and so forth the same files.
+We tried creating a structure with multiple apps but started run into more issues with it than we saw it gave benefit and switched to moving all models etc. to the same folder.
 
 We also tried implementing save and load feature but had problems with getting javascript to parse the string after it was saved and getting csrf issues.
 
