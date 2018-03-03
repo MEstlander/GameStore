@@ -15,7 +15,6 @@ game-store.iml
 __pycache__/
 local_settings.py
 *.sqlite3
-
 thumbnails/
 
 ### OSX ###
