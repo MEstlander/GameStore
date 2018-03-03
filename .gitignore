@@ -39,5 +39,6 @@ Temporary Items
 .apdisk
 
 ### Yarn dependencies ###
+node_modules/
 
 
