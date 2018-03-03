@@ -16,7 +16,7 @@ __pycache__/
 local_settings.py
 *migrations/
 *.sqlite3
-staticfiles/
+
 thumbnails/
 
 ### OSX ###
