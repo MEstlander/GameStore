@@ -1,6 +1,6 @@
 __Picture of backlog final state__  
 
-  
+
 ![backlog](images/backlog_final.png)
 
 __Minimum functional requirements__
@@ -46,7 +46,7 @@ We tried creating a structure with multiple apps but started run into more issue
 
 We also tried implementing save and load feature but had problems with getting javascript to parse the string after it was saved and getting csrf issues.
 
-We had problems with media files when debugging. Therefore two links first with debug=True, second with debug=False. Game thumbnails won't show in link 2.
+We had problems with serving media files and could not get game thumbnails to load. Apparently, heroku does not preserve user uploaded media files between dynos restarts. To fix this we would need to use another storage solution like AWS S3.
 
 __Dividing the work__
 
@@ -56,8 +56,6 @@ Rasmus did layout and design of the website and also payment and authentication,
 
 __Link and instructions__
 
-Link: https://salty-mesa-49148.herokuapp.com/
-
-Link 2 (debug = false): https://nameless-retreat-59006.herokuapp.com)
+Link: https://thawing-everglades-63259.herokuapp.com/
 
 You can find the registration link from the account dropdown menu. If you register as a developer you can find the register game link from the account menu. The rest should be fairly self-explanatory. Link currently has debugging as true because we ran into last minute issues
