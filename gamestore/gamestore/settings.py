@@ -25,7 +25,7 @@ SECRET_KEY = 'Change me'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://morning-headland-47082.herokuapp.com']
+ALLOWED_HOSTS = ['https://afternoon-atoll-82391.herokuapp.com']
 
 # Application definition
 
