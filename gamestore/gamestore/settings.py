@@ -23,9 +23,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'Change me'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['salty-mesa-49148.herokuapp.com','nameless-retreat-59006.herokuapp.com', 'localhost', '127.0.0.1']
+
 
 # Application definition
 
@@ -147,3 +148,9 @@ STATICFILES_FINDERS = [
 # Yarn
 
 YARN_ROOT_PATH = os.path.join(BASE_DIR,'..')
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+MEDIA_URL = '/media/'
+
