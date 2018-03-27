@@ -157,6 +157,8 @@ def register_game(request):
         if form.is_valid():
             f = form.save(commit=False)
             f.developer = request.user
+            if not f.thumbnail:
+                f.thumbnail = 'https://i.imgur.com/LLxYUgy.png'
             f.save()
             return redirect('store')
     else:
