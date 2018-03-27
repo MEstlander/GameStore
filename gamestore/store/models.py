@@ -9,7 +9,7 @@ class User(AbstractUser):
 class Game(models.Model):
     title = models.CharField(max_length=50, unique=True)
     description = models.CharField(max_length=200)
-    thumbnail = models.ImageField(upload_to='thumbnails/', default='thumbnails/default.png')
+    thumbnail = models.URLField(max_length=200)
     url = models.URLField(max_length=200)
     price = models.DecimalField(max_digits=6, decimal_places=2, default=0)
     developer = models.ForeignKey(User, on_delete=models.DO_NOTHING, null=True, blank=True)

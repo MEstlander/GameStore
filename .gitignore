@@ -6,6 +6,7 @@ game-store.iml
 *.swp
 *.tmp
 *.log
+.env
 
 ### Django ###
 *.log
@@ -13,11 +14,9 @@ game-store.iml
 *.pyc
 __pycache__/
 local_settings.py
-*migrations/
-media/
-
-.env
 *.sqlite3
+thumbnails/
+migrations/
 staticfiles/
 
 ### OSX ###
@@ -27,7 +26,6 @@ staticfiles/
 
 # Icon must end with two \r
 Icon
-
 
 # Files that might appear on external disk
 .Spotlight-V100
