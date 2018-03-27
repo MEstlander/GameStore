@@ -25,12 +25,8 @@ SECRET_KEY = 'Change me'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-<<<<<<< HEAD
 ALLOWED_HOSTS = ['salty-mesa-49148.herokuapp.com','nameless-retreat-59006.herokuapp.com', 'localhost', '127.0.0.1']
 
-=======
-ALLOWED_HOSTS = ['*']
->>>>>>> 4885b8f39953e0653d58e44a9d4a8dfaa379ba78
 
 # Application definition
 
@@ -152,12 +148,9 @@ STATICFILES_FINDERS = [
 # Yarn
 
 YARN_ROOT_PATH = os.path.join(BASE_DIR,'..')
-<<<<<<< HEAD
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 MEDIA_URL = '/media/'
 
-=======
->>>>>>> 4885b8f39953e0653d58e44a9d4a8dfaa379ba78
