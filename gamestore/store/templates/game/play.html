@@ -38,6 +38,7 @@
         function reciver(e) {
             var gamescore = parseInt(e.data.score);
             var middlewaretoken = "{{ csrf_token  }}";
+            var message = {messageType: "ERROR"};
             if(e.data.messageType === "SCORE")
                 $('#lastscore').text(gamescore);
 
@@ -67,10 +68,12 @@
                     url: "#",
                     type: "POST",
                     data: {Score: gamescore, csrfmiddlewaretoken: middlewaretoken},
-
+                    
                     success: function() {
                         console.log(e.data);
                         console.log("success");
+                        message.info = "You submitted score";
+                        document.getElementById('iframe').contentWindow.postMessage(message,'*');
                     },
                     error : function(xhr,errmsg,err) {
                         console.log(errmsg);
@@ -82,11 +85,8 @@
                 alert(e.data.messageType);
             else if(e.data.messageType === "LOAD_REQUEST")
                 alert(e.data.messageType);
-            else if(e.data.messageType === "ERROR")
-                alert(e.data.messageType);
-            else alert('Wtf?'+ e.data.messageType)
 
-            console.log(e);
+            //console.log(e);
         };
     </script>
 {% endblock %}
