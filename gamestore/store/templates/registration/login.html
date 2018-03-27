@@ -6,7 +6,7 @@
 
 <main role="main">
     <div class="justify-content-center row">
-      <div style="display: inline-block; margin-top: 35vh">
+      <div style="display: inline-block; margin-top: 25vh">
         <form method="post" action="{% url 'login' %}">
           {% csrf_token %}
           <input class="form-control" type="text" name="username" autofocus="" maxlength="254" required="" placeholder="Username" autocomplete="off">

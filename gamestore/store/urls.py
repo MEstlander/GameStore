@@ -1,7 +1,5 @@
 from django.urls import path
 from django.contrib.auth import views as auth_views
-from django.conf import settings
-from django.conf.urls.static import static
 
 from . import views
 
@@ -21,4 +19,4 @@ urlpatterns = [
     path('payment/success/', views.payment_success, name='payment_success'),
     path('payment/cancel/', views.payment_cancel, name='payment_cancel'),
     path('payment/error/', views.payment_error, name='payment_error')
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]

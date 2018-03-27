@@ -153,7 +153,7 @@ def payment_error(request):
 @developer_required()
 def register_game(request):
     if request.method == 'POST':
-        form = GameRegistrationForm(request.POST, request.FILES)
+        form = GameRegistrationForm(request.POST)
         if form.is_valid():
             f = form.save(commit=False)
             f.developer = request.user
