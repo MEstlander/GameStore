@@ -56,6 +56,6 @@ Rasmus did layout and design of the website and also payment and authentication,
 
 __Link and instructions__
 
-Link: https://thawing-everglades-63259.herokuapp.com/
+Link: https://salty-mesa-49148.herokuapp.com/
 
 You can find the registration link from the account dropdown menu. If you register as a developer you can find the register game link from the account menu. The rest should be fairly self-explanatory. Link currently has debugging as true because we ran into last minute issues
